@@ -14,8 +14,8 @@ project: CyclicLog_dependencies {
         Release::runtime_library = MultiThreadedDLL
         intermediate_dir = ../build/$(ConfigurationName)
         //ExceptionHandling = Async  // We manage exception by ourselves
-        DisableSpecificWarnings += 4231 // see $DPO2_CORE_ROOT/doc/Building/C4231
-        DisableSpecificWarnings += 4251 // see $DPO2_CORE_ROOT/doc/Building/C4251
+        DisableSpecificWarnings += 4231 // see $DPO_CORE_ROOT/doc/Building/C4231
+        DisableSpecificWarnings += 4251 // see $DPO_CORE_ROOT/doc/Building/C4251
     }
 
     specific(!vc9, !vc8, !vc7, !vc6, !gnuace, !make) {

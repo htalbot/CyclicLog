@@ -3,7 +3,7 @@
 use strict;
 use Cwd;
 
-unshift(@INC, $ENV{DPO2_CORE_ROOT} . "/scripts");
+unshift(@INC, $ENV{DPO_CORE_ROOT} . "/scripts");
 require DPOPostbuild;
 
 
