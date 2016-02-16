@@ -1,0 +1,5 @@
+project: CyclicLog_dependencies {
+    includes += $(CYCLICLOG_PRJ_ROOT)/include
+    libpaths += $(CYCLICLOG_PRJ_ROOT)/lib
+    libs += CyclicLog
+}

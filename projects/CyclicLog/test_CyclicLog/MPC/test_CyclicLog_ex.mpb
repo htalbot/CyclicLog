@@ -1,0 +1,60 @@
+project : test_CyclicLog_dependencies {
+
+    version =
+
+    exename = test_CyclicLog
+
+    includes += $(TEST_CYCLICLOG_PRJ_ROOT)/include
+    exeout = $(TEST_CYCLICLOG_PRJ_ROOT)/bin/$(ConfigurationName)
+
+    specific(prop:microsoft) {
+        Debug::runtime_library = MultiThreadedDebugDLL
+        Release::runtime_library = MultiThreadedDLL
+        intermediate_dir = ../build/$(ConfigurationName)
+        use_exe_modifier = 1
+        //ExceptionHandling = Async  // We manage exception by ourselves
+        DisableSpecificWarnings += 4231 // see $DPO2_CORE_ROOT/doc/Building/C4231
+        DisableSpecificWarnings += 4251 // see $DPO2_CORE_ROOT/doc/Building/C4251
+    }
+
+    specific(!vc9, !vc8, !vc7, !vc6, !gnuace, !make) {
+        // Before VC10, 'ConfigurationName' was used for configurations (Debug/Release).
+        // In VC10, 'ConfigurationName' is still supported but when we use it for outdir, it doesn't work.
+        // However, 'ConfigurationName' works elsewhere than with outdir.
+        // We use 'Configuration' for versions greater than VC9 for outdir only.
+        exeout = $(TEST_CYCLICLOG_PRJ_ROOT)/bin/$(Configuration)
+        intermediate_dir = ../build/$(Configuration)
+    }
+
+    specific(prop:microsoft) {
+        postbuild += del ..\bin\$(ConfigurationName)\$(ProjectName)_* 2>nul
+        postbuild += type nul > ..\bin\$(ConfigurationName)\$(ProjectName)_$(PlatformName)_$(ProcessorArchitecture)
+        postbuild += call postbuild.pl
+    } else {
+        postbuild += ./postbuild.pl
+    }
+
+
+    Header_Files {
+        ../include/test_CyclicLog/*
+        *.h
+    }
+
+    Documentation_Files {
+        ../doc/*
+    }
+
+    Define_Custom(Configuration) {
+    }
+
+    Configuration_Files {
+        ../etc/*
+    }
+
+    Define_Custom(Integration_Examples) {
+    }
+
+    Integration_Examples_Files {
+        ../integration_examples/*
+    }
+}

@@ -1,0 +1,15 @@
+Template dll
+------------
+
+This template contains a dummy class. It is used as guideline only.
+
+The function CyclicLog_get_version may be used by the host of the library to
+check its version.
+
+The class CyclicLog is generally replaced by something more useful.
+
+After applying modifications according to the needs, this project
+just have to be built and tested with its test_app (if included
+in workspace).
+
+

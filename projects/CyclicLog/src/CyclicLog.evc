@@ -1,0 +1,12 @@
+#include "CyclicLog.evc.h"
+
+BEGIN_EVENT_DEF_NAMESPACE(CyclicLogEvents)
+	STATIC_EVENT_DEF(ev_file_is_read_only,			1, "Read-only file: '%1(%s)'.")
+	STATIC_EVENT_DEF(ev_invalid_file_size,			2, "The size of the file must be greater than or equal to %1(%d).")
+	STATIC_EVENT_DEF(ev_changing_file_size_failure, 3, "Failed to change the file size to %1(%d).")
+	STATIC_EVENT_DEF(ev_impossible_to_create_file,	4, "Impossible to create file '%1(%s)'.")
+	STATIC_EVENT_DEF(ev_impossible_to_create_dir,	5, "Impossible to create directory: '%1(%s)'.")
+	STATIC_EVENT_DEF(ev_cannot_add_entry,			6, "Can not add entry in the log file: Source = '%1(%s)', Severity = %2(%d), Code = %3(%d), Descr.: '%4(%s)'.")
+	STATIC_EVENT_DEF(ev_cannot_init,				7, "Can not init log file: '%1(%s)'.")
+	STATIC_EVENT_DEF(ev_not_initialized,			8, "Not initialized.")
+END_EVENT_NAMESPACE()

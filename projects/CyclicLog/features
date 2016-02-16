@@ -1,0 +1,10 @@
+// vc_avoid_crt_secure_warnings                = 1
+// vc_scl_secure_warnings                      = 1
+// vc_avoid_this_in_initializer_warnings       = 1
+// vc8_avoid_dominance_warnings                = 1
+// vc8_stl_deprecated_warnings                 = 1
+// vc8_avoid_unimpl_exception_spec_warnings    = 1
+// transport_current                           = 1
+// corba_messaging                             = 1
+interceptors = 0
+wxwindows = 0

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<Project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="DPOProject.xsd">
+  <Name>test_CyclicLog</Name>
+  <Version>1.0.2</Version>
+  <TargetVersion>1.0.2</TargetVersion>
+  <Type>1</Type>
+  <TestAppOf>CyclicLog</TestAppOf>
+  <DPOCompliant>
+    <Value>1</Value>
+    <ProductName>CyclicLog</ProductName>
+    <ProductFlavour>vanilla</ProductFlavour>
+    <MPB></MPB>
+    <MPCIncludes></MPCIncludes>
+  </DPOCompliant>
+  <Dependencies_when_dynamic>
+    <ProjectDependency>
+      <Name>CyclicLog</Name>
+      <Version>1.0.2</Version>
+      <TargetVersion>1.0.2</TargetVersion>
+      <Type>6</Type>
+      <DPOCompliant>
+        <Value>1</Value>
+        <ProductName>CyclicLog</ProductName>
+        <ProductFlavour>vanilla</ProductFlavour>
+        <MPB></MPB>
+        <MPCIncludes></MPCIncludes>
+      </DPOCompliant>
+    </ProjectDependency>
+  </Dependencies_when_dynamic>
+  <Dependencies_when_static>
+    <ProjectDependency>
+      <Name>CyclicLog</Name>
+      <Version>1.0.2</Version>
+      <TargetVersion>1.0.2</TargetVersion>
+      <Type>6</Type>
+      <DPOCompliant>
+        <Value>1</Value>
+        <ProductName>CyclicLog</ProductName>
+        <ProductFlavour>vanilla</ProductFlavour>
+        <MPB></MPB>
+        <MPCIncludes></MPCIncludes>
+      </DPOCompliant>
+    </ProjectDependency>
+  </Dependencies_when_static>
+</Project>

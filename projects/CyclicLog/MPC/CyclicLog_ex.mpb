@@ -1,0 +1,64 @@
+project: CyclicLog_dependencies {
+
+    version =
+
+    sharedname = CyclicLog
+    dynamicflags = CYCLICLOG_BUILD_DLL
+
+    includes += $(CYCLICLOG_PRJ_ROOT)/include
+    dllout = $(CYCLICLOG_PRJ_ROOT)/lib/$(ConfigurationName)
+    libout = $(CYCLICLOG_PRJ_ROOT)/lib/$(ConfigurationName)
+
+    specific(prop:microsoft) {
+        Debug::runtime_library = MultiThreadedDebugDLL
+        Release::runtime_library = MultiThreadedDLL
+        intermediate_dir = ../build/$(ConfigurationName)
+        //ExceptionHandling = Async  // We manage exception by ourselves
+        DisableSpecificWarnings += 4231 // see $DPO2_CORE_ROOT/doc/Building/C4231
+        DisableSpecificWarnings += 4251 // see $DPO2_CORE_ROOT/doc/Building/C4251
+    }
+
+    specific(!vc9, !vc8, !vc7, !vc6, !gnuace, !make) {
+        // Before VC10, 'ConfigurationName' was used for configurations
+        //  (Debug/Release).
+        // In VC10, 'ConfigurationName' is still supported but when used for
+        //  'Output Directory' and 'Intermediate Directory', it doesn't work
+        //  anymore.
+        // We use 'Configuration' for versions greater than VC9 for
+        //  'Output Directory' and 'Intermediate Directory'.
+        dllout = $(CYCLICLOG_PRJ_ROOT)/lib/$(Configuration)
+        libout = $(CYCLICLOG_PRJ_ROOT)/lib/$(Configuration)
+        intermediate_dir = ../build/$(Configuration)
+    }
+
+    specific(prop:microsoft) {
+        postbuild += del ..\lib\$(ConfigurationName)\$(ProjectName)_* 2>nul
+        postbuild += type nul > ..\lib\$(ConfigurationName)\$(ProjectName)_$(PlatformName)_$(ProcessorArchitecture)
+        postbuild += call postbuild.pl
+    } else {
+        postbuild += ./postbuild.pl
+    }
+
+    Header_Files {
+        ../include/CyclicLog/*
+        *.h
+    }
+
+    Documentation_Files {
+        ../doc/*
+    }
+
+    Define_Custom(Configuration) {
+    }
+
+    Configuration_Files {
+        ../etc/*
+    }
+
+    Define_Custom(Integration_Examples) {
+    }
+
+    Integration_Examples_Files {
+        ../integration_examples/*
+    }
+}

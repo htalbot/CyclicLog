@@ -1,0 +1,11 @@
+CyclicLog manages a rotating log.
+
+
+CyclicLog has been generated with DPO (https://github.com/htalbot/DPOpp)
+
+- Generate projects/solution with dpo.pl
+
+- Build
+
+- To push it into a pool, freeze it with dpo.pl (https://github.com/htalbot/DPOpp)
+

@@ -1,0 +1,5 @@
+project: test_CyclicLog_ex, test_CyclicLog_fit_static {
+
+    exename = test_CyclicLog_static
+
+}

@@ -1,0 +1,15 @@
+*.vcxproj
+*.vcxproj.filters
+*.vcxproj.user
+*.vcproj
+*.opensdf
+*.sdf
+*.sln
+*.suo
+*.ipch
+/**/ipch/**/*
+/**/build/**/*
+/**/lib/**/*
+/**/bin/**/*
+/**/run/**/*
+
